@@ -1,3 +1,16 @@
+import { MainHeader } from "@/components/MainHeader";
+import { Page } from "@/components/Page";
+import { ListOfPokemons } from "@/widgets/ListOfPokemons";
+import { ListOfTags } from "@/widgets/ListOfTags/ui/ListOfTags";
+
+import s from "./MainPage.module.scss";
+
 export const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <Page classes={s.wrapper}>
+      <MainHeader />
+      <ListOfTags />
+      <ListOfPokemons />
+    </Page>
+  );
 };

@@ -18,6 +18,9 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        project: "./tsconfig.app.json",
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
@@ -45,7 +48,9 @@ export default tseslint.config(
             "builtin",
             "external",
             "internal",
-            ["parent", "sibling", "index"],
+            "parent",
+            "sibling",
+            "index",
           ],
           pathGroups: [
             {
@@ -67,12 +72,6 @@ export default tseslint.config(
         },
       ],
       "import/no-duplicates": "error",
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: ["../*", "./*"],
-        },
-      ],
       "unused-imports/no-unused-imports": "warn",
       "unused-imports/no-unused-vars": [
         "warn",
@@ -83,9 +82,6 @@ export default tseslint.config(
           argsIgnorePattern: "^_",
         },
       ],
-    },
-    parserOptions: {
-      project: "./tsconfig.json",
     },
   },
 );

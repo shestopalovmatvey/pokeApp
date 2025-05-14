@@ -1,0 +1,3 @@
+type CacheEntry {
+    timestamp: number;
+}
