@@ -1,0 +1,81 @@
+@mixin skeleton {
+  background: rgba(130, 130, 130, 0.2);
+  background: linear-gradient(
+    to right,
+    rgba(130, 130, 130, 0.2) 8%,
+    rgba(130, 130, 130, 0.3) 18%,
+    rgba(130, 130, 130, 0.2) 33%
+  );
+  background-size: 800px 100px;
+  animation: wave-lines 2s infinite ease-out;
+}
+
+.card {
+  width: 330px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 16px;
+  border-radius: 24px;
+  border: 2px solid #e5e5e5;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      width: 120px;
+      height: 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      @include skeleton;
+    }
+
+    .subtitle {
+      width: 50px;
+    }
+  }
+
+  &__image {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    @include skeleton;
+  }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    .tag {
+      width: 40px;
+      height: 12px;
+      border-radius: 12px;
+      @include skeleton;
+    }
+  }
+}
+
+@keyframes wave-lines {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+@keyframes wave-squares {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
