@@ -1,4 +1,8 @@
-import { Pokemon, PokemonInfoCard } from "../models/pokeApiModels";
+import {
+  CurrentPokemonInfo,
+  Pokemon,
+  PokemonInfoCard,
+} from "../models/pokeApiModels";
 
 export const fetchPokemonList = async (
   limit = 10,
@@ -32,6 +36,27 @@ export const getPokemonInfoCard = async (
     name: details?.name,
     id: details?.id,
     image: `https://img.pokemondb.net/artwork/${details?.name}.jpg`,
+    types: details?.types.map(
+      (pokemon: { type: { name: string } }) => pokemon.type.name,
+    ),
+  };
+};
+
+export const getCurrentPokemonInfo = async (
+  name: string,
+): Promise<CurrentPokemonInfo | null> => {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const details = await res.json();
+
+  return {
+    name: details?.name,
+    id: details?.id,
+    image: `https://img.pokemondb.net/artwork/${details?.name}.jpg`,
+    weight: details?.weight,
+    height: details?.height,
+    abilities: details?.abilities.map(
+      (elem: { ability: { name: string } }) => elem.ability.name,
+    ),
     types: details?.types.map(
       (pokemon: { type: { name: string } }) => pokemon.type.name,
     ),

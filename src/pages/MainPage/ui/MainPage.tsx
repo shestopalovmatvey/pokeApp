@@ -8,7 +8,7 @@ import s from "./MainPage.module.scss";
 export const MainPage = () => {
   return (
     <Page classes={s.wrapper}>
-      <MainHeader />
+      <MainHeader isShowText />
       <ListOfTags />
       <ListOfPokemons />
     </Page>
