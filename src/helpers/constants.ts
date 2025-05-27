@@ -1,5 +1,7 @@
 export const MAX_LIMIT = 1350;
 
+export const TIME_LIMIT = 2 * 60 * 1000;
+
 export const enum EnumPokemonTypes {
   ALL = "all",
   NORMAL = "normal",
